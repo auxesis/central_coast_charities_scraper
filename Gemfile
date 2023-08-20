@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'scraperwiki', git: 'https://github.com/openaustralia/scraperwiki-ruby.git', branch: 'morph_defaults'
-gem 'mechanize'
+gem 'faraday'
 gem 'addressable'
 gem 'reverse_markdown'
 gem 'activesupport'
