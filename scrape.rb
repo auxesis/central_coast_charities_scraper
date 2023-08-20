@@ -8,8 +8,15 @@ STDOUT.sync = true
 
 def agent
   return @agent if @agent
-  default_headers = { 'User-Agent': "central_coast_charities_scraper (#{RUBY_PLATFORM}) https://github.com/auxesis/central_coast_charities_scraper" }
-  @agent = Faraday.new(headers: default_headers) do |f|
+  options = {
+    request: {
+      open_timeout: 60,
+      read_timeout: 180,
+      write_timeout: 60,
+    },
+    headers: { 'User-Agent': "central_coast_charities_scraper (#{RUBY_PLATFORM}) https://github.com/auxesis/central_coast_charities_scraper" },
+  }
+  @agent = Faraday.new(options) do |f|
     f.response :json
   end
   @agent
